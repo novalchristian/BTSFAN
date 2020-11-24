@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import Logo from '../../assets/logo.jpg';
 
 const Splash = ({navigation}) => {
     useEffect(() => {
@@ -9,9 +10,8 @@ const Splash = ({navigation}) => {
     }, [navigation]);
     return(
         <View style={styles.container}>
-            <Text style={styles.text}>APLIKASI</Text>
-            <Text style={styles.text}>PENDAKIAN</Text>
-            <Text style={styles.text}>GUNUNG</Text>
+            <Image source source={Logo} style={styles.image}/>
+            <Text style={styles.text}>Merchandise</Text>
         </View>
     )
 }
@@ -21,9 +21,14 @@ export default Splash;
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#fff'
     },
+    image: {
+        width:200, 
+        height: 200
+      },
     text:{
         fontSize: 25,
         fontWeight: 'bold'
