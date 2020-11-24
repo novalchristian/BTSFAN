@@ -21,13 +21,14 @@ function Home() {
         name="Home"
         component={HomePage}
         options={{
-        }}
-      />
-      <HomeStack.Screen
-        name="Detail"
-        component={HomeDetailPage}
-        options={{
-            headerTitle: 'Form',
+          title: 'BTS MERCHANDISE',
+          headerStyle: {
+            backgroundColor: '#9e66ff',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
     </HomeStack.Navigator>
@@ -42,6 +43,11 @@ function Profile() {
           name="Profile"
           component={ProfilePage}
           options={{
+            title: 'Profile',
+            headerStyle: {
+              backgroundColor: '#9e66ff',
+            },
+            headerTintColor: '#fff',
           }}
         />
       </ProfileStack.Navigator>
@@ -52,14 +58,23 @@ function Profile() {
 const Tab = createBottomTabNavigator();
 function Navigation(){
   return(
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: 'black',
+        inactiveTintColor: 'gray',
+        tabStyle: {
+          backgroundColor: '#fff',
+          shadowOpacity: 0,
+          elevation: 0,
+      },
+      }}
+    >
         <Tab.Screen
           name="Home"
           component={Home}
           options={{
             name: 'Home',
             headerTitle: 'Home',
-            headerShown: true,
             tabBarIcon:() => {
                 return <FontAwesomeIcon icon={faHome} size={20}/>
             }
@@ -70,7 +85,6 @@ function Navigation(){
           component={Profile}
           options={{
             headerTitle: 'Profile',
-            headerShown: true,
             tabBarIcon:() => {
                 return <FontAwesomeIcon icon={faUserCircle} size={20}/>
             }
@@ -99,6 +113,13 @@ export default function Index() {
             headerShown: false,
           }}
         />
+        <InitialStack.Screen
+        name="Detail"
+        component={HomeDetailPage}
+        options={{
+            headerTitle: 'Detail',
+        }}
+      />
     </InitialStack.Navigator>
     </NavigationContainer>
   );
