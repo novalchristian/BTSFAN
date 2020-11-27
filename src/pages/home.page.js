@@ -68,14 +68,14 @@ export default function Home({navigation}) {
         <StatusBar backgroundColor='#9e66ff' barStyle="light-content" translucent/>
             
             {/* lIST */}
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 {data.map((data) => (
                     <TouchableOpacity key={data.key} onPress={() => onPressed(data)}>
-                        <View style={{paddingHorizontal:20, paddingVertical: 15, backgroundColor: '#fff', flexDirection: 'row', borderWidth:0.5, borderColor: '#d1d1d1'}}>
+                        <View style={styles.listWrapper}>
                             <Image source={data.gambar} style={styles.image}/>
-                            <View style={{marginLeft:15, justifyContent: 'center'}}>
-                                <Text style={{fontSize:20, fontWeight: 'bold'}}>{data.name}</Text>
-                                <Text style={{fontSize:20, color:'#9e66ff', paddingTop: 40}}>Rp. {data.price}</Text>
+                            <View style={styles.listTextWrapper}>
+                                <Text style={styles.textTitle}>{data.name}</Text>
+                                <Text style={styles.subTitle}>Rp. {data.price}</Text>
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -86,6 +86,27 @@ export default function Home({navigation}) {
 }
 const {width} = Dimensions.get('screen');
 const styles = StyleSheet.create({
+    subTitle:{
+        fontSize:20, 
+        color:'#9e66ff', 
+        paddingTop: 40
+    },
+    textTitle:{
+        fontSize:20, 
+        fontWeight: 'bold'
+    },
+    listTextWrapper:{
+        marginLeft:15, 
+        justifyContent: 'center'
+    },
+    listWrapper:{
+        paddingHorizontal:20, 
+        paddingVertical: 15, 
+        backgroundColor: '#fff', 
+        flexDirection: 'row', 
+        borderWidth:0.5, 
+        borderColor: '#d1d1d1'
+    },
     image: {
         width: 130,
         height: 130,

@@ -1,6 +1,7 @@
 import {
     faHome,
     faUserCircle,
+    faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import 'react-native-gesture-handler';
@@ -12,6 +13,8 @@ import HomePage from '../pages/home.page';
 import HomeDetailPage from '../pages/home-detail.page';
 import ProfilePage from '../pages/profile.page';
 import SplashPage from '../pages/splash.page';
+import FriendsPage from '../pages/friends.page';
+import FriendsAdd from '../pages/friends-add.page';
 
 const HomeStack = createStackNavigator();
 function Home() {
@@ -54,6 +57,24 @@ function Profile() {
     );
   }
 
+const FriendsStack = createStackNavigator();
+function Friends() {
+    return (
+      <FriendsStack.Navigator>
+        <FriendsStack.Screen
+          name="Friends"
+          component={FriendsPage}
+          options={{
+            title: 'Friends',
+            headerStyle: {
+              backgroundColor: '#9e66ff',
+            },
+            headerTintColor: '#fff',
+          }}
+        />
+      </FriendsStack.Navigator>
+    );
+  }
 
 const Tab = createBottomTabNavigator();
 function Navigation(){
@@ -77,6 +98,16 @@ function Navigation(){
             headerTitle: 'Home',
             tabBarIcon:() => {
                 return <FontAwesomeIcon icon={faHome} size={20}/>
+            }
+          }}
+        />
+        <Tab.Screen
+          name="Friends"
+          component={Friends}
+          options={{
+            headerTitle: 'Friend',
+            tabBarIcon:() => {
+                return <FontAwesomeIcon icon={faUserFriends} size={20}/>
             }
           }}
         />
@@ -119,7 +150,14 @@ export default function Index() {
         options={{
             headerTitle: 'Detail',
         }}
-      />
+        />
+      <InitialStack.Screen
+        name="Friends-Detail"
+        component={FriendsAdd}
+        options={{
+            headerTitle: 'Tambah Teman',
+        }}
+        />
     </InitialStack.Navigator>
     </NavigationContainer>
   );
