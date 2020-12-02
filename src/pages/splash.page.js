@@ -12,7 +12,7 @@ const Splash = ({navigation}) => {
         <View style={styles.container}>
             <StatusBar backgroundColor='#fff' barStyle="dark-content" translucent/>
             <Image source source={Logo} style={styles.image}/>
-            <Text style={styles.text}>Merchandise</Text>
+            <Text style={styles.text}>FAN</Text>
         </View>
     )
 }

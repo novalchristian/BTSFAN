@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  LogBox
 } from 'react-native';
 
 import {
